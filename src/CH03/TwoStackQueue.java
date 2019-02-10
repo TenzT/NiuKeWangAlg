@@ -1,4 +1,4 @@
-package CH02;
+package CH03;
 /**
  * 用两个栈实现一个队列
  */

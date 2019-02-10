@@ -1,4 +1,4 @@
-package CH02;
+package CH03;
 
 public class ArrayStack {
     private Integer[] stackData;  // 栈的数据

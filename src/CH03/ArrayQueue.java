@@ -1,4 +1,4 @@
-package CH02;
+package CH03;
 
 public class ArrayQueue {
     private Integer[] queueData;

@@ -1,4 +1,4 @@
-package CH02;
+package CH03;
 
 import java.util.LinkedList;
 import java.util.Queue;
