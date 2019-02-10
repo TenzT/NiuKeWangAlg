@@ -18,7 +18,7 @@ public class PrintSpiralMatrix {
 			for (int i=topRow; i<= downRow; i++) {
 				System.out.print(matrix[i][topColumn] + " ");
 			}
-		} else {	// 完整矩阵
+		} else { // 完整矩阵
 			for (int i=topColumn; i < downColumn; i++) {
 				System.out.print(matrix[topRow][i] + " ");
 			}
@@ -40,7 +40,7 @@ public class PrintSpiralMatrix {
 		int topColumn = 0;
 		int downRow = matrix.length - 1;
 		int downColumn = matrix[0].length - 1;
-		while(topRow < downRow) {
+		while(topRow <= downRow && topColumn <= downColumn) {
 			printEdge(matrix, topRow++, topColumn++, downRow--, downColumn--);
 		}
 		
@@ -59,7 +59,8 @@ public class PrintSpiralMatrix {
 		int[][] matrix = new int[][]{{1,2,3,4},
 									{5,6,7,8},
 									{9,10,11,12},
-									{13,14,15,16}};
+									{13,14,15,16},
+									{17,18,19,20}};
 		printMatrix(matrix);
 		System.out.println();
 		printSpiralMatrix(matrix);
