@@ -4,7 +4,7 @@ package CH03;
  * 思路：宏观调度题，先抽离出核心的可复用的步骤，在本题中是给定左上角和右下角，
  * 逆时针转圈打印矩阵的边缘，往内收窄一圈后重复
  */
-public class RotateMatrix {
+public class PrintSpiralMatrix {
 	private static void printEdge(int[][] matrix, int topRow, int topColumn, int downRow, int downColumn) {
 		if (matrix == null) {
 			throw new RuntimeException("矩阵为空，不可打印");
@@ -35,7 +35,7 @@ public class RotateMatrix {
 		
 	}
 	
-	public static void rotateMatrix(int[][] matrix) {
+	public static void printSpiralMatrix(int[][] matrix) {
 		int topRow = 0;
 		int topColumn = 0;
 		int downRow = matrix.length - 1;
@@ -62,6 +62,6 @@ public class RotateMatrix {
 									{13,14,15,16}};
 		printMatrix(matrix);
 		System.out.println();
-		rotateMatrix(matrix);
+		printSpiralMatrix(matrix);
 	}
 }
