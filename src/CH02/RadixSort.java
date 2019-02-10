@@ -34,7 +34,8 @@ public class RadixSort {
 	private static int getDigit(int num, int digit) {
 		return ((num / ((int) Math.pow(10, digit - 1))) % 10);
 	}
-	
+
+	/*******好好回顾*********/
 	private static void radixSort(int[] arr, int begin, int end, int maxBit) {
 		int radix = 10;		//基数为10
 		int[] count = new int[radix];		// 0到9,桶的个数并在单词排序中使用计数排序
@@ -64,6 +65,7 @@ public class RadixSort {
 			
 		}
 	}
+	/********************/
 	
 	// for test
 	public static boolean isEqual(int[] arr1, int[] arr2) {
@@ -122,7 +124,7 @@ public class RadixSort {
 	}
 	
 	public static void main(String[] args) {
-		int testTime = 500000;
+		int testTime = 5000;
 		int maxSize = 100;
 		int maxValue = 100000;
 		boolean succeed = true;
