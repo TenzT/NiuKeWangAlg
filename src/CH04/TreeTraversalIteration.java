@@ -1,5 +1,8 @@
 package CH04;
 
+/**
+ * 使用非递归形式实现几种遍历
+ */
 import java.util.Stack;
 
 public class TreeTraversalIteration {
