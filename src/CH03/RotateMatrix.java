@@ -6,7 +6,7 @@ package CH03;
 public class RotateMatrix {
 	private static void rotate(int[][] matrix, int topRow, int topColumn, int downRow, int downColumn) {
 		int times = downColumn - topColumn;
-		// 旋转的细节，坐标的变换
+		/*** 旋转的细节，坐标的变换,注意相对坐标的重要性****/
 		for (int i=0; i<times; i++) {
 			int tmp = matrix[topRow][topColumn + i];	// 拿出来暂存一下
 			matrix[topRow][topColumn + i] = matrix[downRow-i][topColumn];
@@ -14,6 +14,7 @@ public class RotateMatrix {
 			matrix[downRow][downColumn-i] = matrix[topColumn + i][downColumn];
 			matrix[topColumn + i][downColumn] = tmp;
 		}
+		/*******/
 		
 	}
 	public static void ratateMatrix(int[][] matrix) {
