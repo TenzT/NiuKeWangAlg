@@ -18,6 +18,21 @@ public class FindNumInSortedMatrix {
 		return false;
 	}
 	
+	public static boolean containsFromDownLeft(int[][] matrix, int num) {
+		int row = matrix.length - 1;
+		int column = 0;
+		while (row >=0 && column<matrix[0].length) {
+			if (matrix[row][column] == num) {
+				return true;
+			} else if (matrix[row][column] < num) {
+				column++;
+			} else {
+				row--;
+			}
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
 		int[][] matrix = new int[][] { { 0, 1, 2, 3, 4, 5, 6 },// 0
 				{ 10, 12, 13, 15, 16, 17, 18 },// 1
@@ -30,5 +45,6 @@ public class FindNumInSortedMatrix {
 		};
 		int K = 11;
 		System.out.println(containsFromTopRight(matrix, K));
+		System.out.println(containsFromDownLeft(matrix, K));
 	}
 }
