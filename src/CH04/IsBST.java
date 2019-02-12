@@ -1,6 +1,5 @@
 package CH04;
 
-import CH04.TreeTraversalRecur.Node;
 
 /**
  * 小记：做树的题目的常用规律在于使用递归来查看左右子树和父节点是否满足某种关系
