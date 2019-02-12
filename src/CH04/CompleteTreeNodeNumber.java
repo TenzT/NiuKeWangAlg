@@ -1,6 +1,7 @@
 package CH04;
 /**
  * 已知一棵完全二叉树，求其节点的个数,要求时间复杂度O(N),N为节点个数
+ * 思路：对一棵树做分析，如果左子树是满二叉树，则左子树的节点个数加右子树的节点个数，否则对左子树往下找
  */
 public class CompleteTreeNodeNumber {
 	public static class Node {
