@@ -10,6 +10,7 @@ import java.util.Queue;
  * 使用层序遍历，分两种情况可以否定为完全二叉树：
  * 1. 遇到有右子树而没有左子树的情况不是完全二叉树
  * 2. 有左或都没有时，往后遇到非叶节点则不是完全二叉树
+ * Tips: 遇到完全二叉树除了前中后序遍历，还可以考虑层序遍历（BFS）
  */
 public class IsCompleteTree {
 	public static class Node {
