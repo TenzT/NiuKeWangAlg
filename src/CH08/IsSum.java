@@ -10,7 +10,7 @@ public class IsSum {
 		return isSum1(arr, 0, 0, aim);
 	}
 	private static boolean isSum1(int[] arr, int cur, int sum, int aim) {
-		if (sum == aim) {
+		if (sum == aim) {	// basecase
 			return true;
 		}
 		if (cur == arr.length) {
@@ -22,7 +22,7 @@ public class IsSum {
 	
 	// 动态规划版本
 	public static boolean isSum2(int[] arr, int aim) {
-		// 创建dp表
+		// 创建dp表,dp表的作用就是记录中间状态
 		boolean[][] dp = new boolean[arr.length + 1][aim + 1];	// 不同行代表不同位(对应暴力递归的cur)，
 														// 不同列代表0到aim的情况（对应暴力递归的sum）
 		// 设置basecase
@@ -31,9 +31,9 @@ public class IsSum {
 		}
 		for (int i=arr.length-1; i >= 0; i--) {
 			for (int j = aim-1; j >= 0; j--) {
-				dp[i][j] = dp[i + 1][j];
-				if (j + arr[i] <= aim) {
-					dp[i][j] = dp[i][j] || dp[i + 1][j + arr[i]];
+				dp[i][j] = dp[i + 1][j];	// 不加上i这个数时的结果
+				if (j + arr[i] <= aim) {	// 加上i这个数时的结果，sum变成j+arr[i]
+					dp[i][j] = dp[i][j] || dp[i + 1][j + arr[i]];	// 只要有一个true即可,填表的语句对应的就是状态转移的语句
 				}
 			}
 		}
