@@ -17,8 +17,8 @@ public class NumberPyramid {
 	}
 	public static long process1(int[][] matrix, int row, int column) {
 		// 到达塔底
-		if (row == matrix.length) {
-			return 0;
+		if (row == matrix.length-1) {
+			return matrix[row][column];
 		}
 		long max = matrix[row][column] + 
 				Math.max(process1(matrix, row+1, column),
@@ -68,6 +68,7 @@ public class NumberPyramid {
 		 * 10 6 8
 		 * 2 18 9 5
 		 * 19 7 10 4 16
+		 * 正确输出为59
 		 */
 		Scanner in = new Scanner(System.in);
 		int N = in.nextInt();	// 数塔高度
