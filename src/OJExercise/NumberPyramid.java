@@ -2,7 +2,7 @@ package OJExercise;
 
 import java.util.Scanner;
 
-/*
+/* 向前递推
  * 输入一个数塔，每个节点可以选择从左走或者从右走，
  * 要求一直走到塔底，使得走过的路径上的数值和最大
  * 思路: f(m,n) = value(m,n) + max{f(m+1,n), f(m+1,n+1)}

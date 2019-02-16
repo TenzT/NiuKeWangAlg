@@ -2,7 +2,8 @@ package OJExercise;
 
 import java.util.Scanner;
 
-/*来源：hdu 2044 http://acm.hdu.edu.cn/showproblem.php?pid=2044
+/* 向前递推
+ * 来源：hdu 2044 http://acm.hdu.edu.cn/showproblem.php?pid=2044
  * 有一只经过训练的蜜蜂只能爬向右侧相邻的蜂房，不能反向爬行。
  * 蜂房结构为蛇形结构
  * 请编程计算蜜蜂从蜂房a爬到蜂房b的可能路线数。
