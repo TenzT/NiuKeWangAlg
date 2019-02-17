@@ -6,6 +6,7 @@ import java.util.Stack;
  * Given a singly linked list L: L 0→L 1→…→L n-1→L n,
  * reorder it to: L 0→L n →L 1→L n-1→L 2→L n-2→…
  * You must do this in-place without altering the nodes' values.
+ * 思路:前半段顺序，后半段逆序（借助stack），使用快慢指针找到中点，然后用stack存储再合并
  */
 public class ReorderList {
 	public static class ListNode {
