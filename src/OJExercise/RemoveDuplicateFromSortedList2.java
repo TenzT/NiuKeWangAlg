@@ -2,11 +2,11 @@ package OJExercise;
 
 /**
  * Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
- * For example
- * Given1->1->2, return1->2.
- * Given1->1->2->3->3, return1->2->3.
+ * For example,
+ * Given1->2->3->3->4->4->5, return1->2->5.
+ * Given1->1->1->2->3, return2->3.
  */
-public class RemoveDuplicateFromSortedList {
+public class RemoveDuplicateFromSortedList2 {
     public static class ListNode {
         int val;
         ListNode next;
@@ -15,20 +15,28 @@ public class RemoveDuplicateFromSortedList {
         }
     }
 
-    //思路：不需要用到dummy，站在原地判断下一个是不是和自己，相等则一路删除
+    //思路：首先使用dummy指针，可以搞定全部相同的情况，然后有快慢指针，快指针走在前面，一直检测有没有重复的，有则消除，没有则两个指针向前走
     public static ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode cur = head;
-        while (cur != null && cur.next != null) {
-            if(cur.next != null && cur.val == cur.next.val) {
-                cur.next = cur.next.next;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            if (fast.val == fast.next.val) {
+                while (fast.next != null && fast.val == fast.next.val) {
+                    fast.next = fast.next.next;
+                }
+                slow.next = fast.next;
+                fast = fast.next;
             } else {
-                cur = cur.next;
+                slow = fast;
+                fast = fast.next;
             }
         }
-        return head;
+        return dummy.next;
     }
 
     // for test
