@@ -1,4 +1,4 @@
-package OJExercise;
+package OJExercise.DynamicProgramming;
 
 import java.util.Scanner;
 

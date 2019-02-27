@@ -1,4 +1,4 @@
-package OJExercise;
+package OJExercise.DynamicProgramming;
 /*
  * 0-1背包问题
  * 在购买之前判断余额，如果购买一个商品之前，

@@ -1,6 +1,5 @@
-package OJExercise;
+package OJExercise.LinkedList;
 
-import OJExercise.ReorderList.ListNode;
 
 /*
  * Given a linked list, determine if it has a cycle in it.
@@ -8,6 +7,14 @@ import OJExercise.ReorderList.ListNode;
  * Follow up:Can you solve it without using extra space?
  */
 public class LinkedListCycle {
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
 	public static ListNode detectCycle(ListNode head) {
 		if (head == null) {
 			return null;

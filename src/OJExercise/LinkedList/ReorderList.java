@@ -1,4 +1,4 @@
-package OJExercise;
+package OJExercise.LinkedList;
 
 import java.util.Stack;
 

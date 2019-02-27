@@ -1,4 +1,4 @@
-package OJExercise;
+package OJExercise.LinkedList;
 
 public class ReverseLinkedList2 {
     public static class ListNode {

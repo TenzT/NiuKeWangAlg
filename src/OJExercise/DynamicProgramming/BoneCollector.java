@@ -1,4 +1,4 @@
-package OJExercise;
+package OJExercise.DynamicProgramming;
 /*
  * 0-1背包问题
  */

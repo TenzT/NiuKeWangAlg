@@ -1,4 +1,4 @@
-package OJExercise;
+package OJExercise.DynamicProgramming;
 
 public class CuttingRope {
 	

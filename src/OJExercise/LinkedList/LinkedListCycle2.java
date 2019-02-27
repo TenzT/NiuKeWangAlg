@@ -1,6 +1,6 @@
-package OJExercise;
+package OJExercise.LinkedList;
 
-import OJExercise.ReorderList.ListNode;
+import OJExercise.LinkedList.PartitionList.ListNode;
 
 /*
  * Given a linked list, return the node where the cycle begins.
@@ -8,6 +8,14 @@ import OJExercise.ReorderList.ListNode;
  * Follow up:Can you solve it without using extra space?
  */
 public class LinkedListCycle2 {
+    public static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
 	public static ListNode detectCycle(ListNode head) {
 		if (head == null) {
 			return null;
