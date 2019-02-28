@@ -11,9 +11,6 @@ public class MinimumDepthOfBinaryTree extends AbstractTree{
 		if (root == null) {
             return 0;
         }
-		if (root.left == null && root.right == null) {
-			return 1;
-		}
 		if (root.left == null) {
 			return run(root.right) + 1;
 		}
