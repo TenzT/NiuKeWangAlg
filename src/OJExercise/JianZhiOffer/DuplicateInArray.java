@@ -10,7 +10,7 @@ import java.util.Set;
  *
  * 注意无效输入测试用例：空指针；拥有超出范围数字的
  */
-public class FindDuplicateNumber {
+public class DuplicateInArray {
     // 法1：对整个数组排序，遍历排序后的数组，但是排序一个数组需要O(nlogn + n)
     public static int findDuplicate1(int[] arr) {
         int res = Integer.MAX_VALUE;
