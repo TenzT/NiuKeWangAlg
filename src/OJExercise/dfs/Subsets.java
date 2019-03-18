@@ -1,4 +1,4 @@
-package OJExercise.bruteforce;
+package OJExercise.dfs;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -16,14 +16,19 @@ public class Subsets {
 	// 关键点：画出递归树就理解了
 	public static void process1(int[] set, int cur, LinkedList<LinkedList<Integer>> result, LinkedList<Integer> path) {
 		if (cur == set.length) {	// 递归树木的底, 把路径装进去
-			result.add(path);
+			result.add(new LinkedList<>(path));
 			return;
 		}
 
 		// 走这条路，则new一个path下去
-		LinkedList<Integer> pathThis = new LinkedList<>(path);
-		pathThis.add(set[cur]);
-		process1(set, cur+1, result, pathThis);
+//		LinkedList<Integer> pathThis = new LinkedList<>(path);
+//		pathThis.add(set[cur]);
+//		process1(set, cur+1, result, pathThis);
+		
+		// 更加dfs的写法
+		path.add(set[cur]);
+		process1(set, cur+1, result, path);
+		path.remove(path.size()-1);
 		
 		// 不选当前这个元素, 直接往下走
 		process1(set, cur+1, result, path);

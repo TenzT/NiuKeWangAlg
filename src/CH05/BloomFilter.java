@@ -1,8 +1,7 @@
 package CH05;
 
 /**
- * 使用哈希bitSet来查找输入值是否在集合内
- * 思路
+ * 
  */
 public class BloomFilter {
 

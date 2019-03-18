@@ -1,4 +1,4 @@
-package OJExercise.bruteforce;
+package OJExercise.dfs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,32 +15,30 @@ import java.util.Scanner;
  * 思路：这题有重复元素，但本质上，跟上一题很像，相当于可以选0次或若干次
  */
 public class Subsets2 {
-	// 增量构造法+DFS：用指针指向元素，每个元素都有两种选择，选或者不选
-	// 时间复杂度(2^n)，空间复杂度O(n)
-	// 关键点：画出递归树就理解了
+	// 这种做法是保证按集合大小做一次遍历，每种size往下用增量法dfs，这种情况下不太好总结出递归树
 	public static List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        for(int cur = 0; cur <= nums.length; cur++){
-            backtrack(res, new ArrayList<Integer>(), nums, 0, cur);
-        }
+        List<List<Integer>> res = new LinkedList<List<Integer>>();
+        List<Integer> path = new LinkedList();
+        
+        dfs(nums, 0, path, res);
+        
         return res;
     }
-    public static void backtrack(List<List<Integer>> res, List<Integer> temp, int[] nums, 
-    		int start, int cur){
-        if(cur == 0){	// 到达树底
-            res.add(new ArrayList(temp));
-            return;
+    public static void dfs(int nums[], int start, List<Integer> path, 
+    		List<List<Integer>> res){
+        res.add(new LinkedList<>(path));	// 先把上一步的结果加上
+        
+        for (int i=start; i < nums.length; i++) {
+        	if (i != start && nums[i] == nums[i-1]) {	// 如果和前面相同就不要继续了
+        		continue;
+        	}
+        	path.add(nums[i]);
+        	dfs(nums, i+1, path, res);
+        	path.remove(path.size()-1);
         }
-        for(int i = start; i < nums.length; i++){
-            if(i != start && nums[i] == nums[i-1]) // 先定好重复元素的最后一位，靠start的移位来扫描多种情况
-            	continue;
-            temp.add(nums[i]);
-            backtrack(res, temp, nums, i+1, --cur);
-            temp.remove(temp.size()-1);	// 在回溯的情况下，所有情况其实可以共用一个path
-        }
-        return;
     }
+    
 	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
