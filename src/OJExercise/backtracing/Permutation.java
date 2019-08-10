@@ -1,4 +1,4 @@
-package OJExercise.bruteforce;
+package OJExercise.backtracing;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package OJExercise.bruteforce;
+package OJExercise.backtracing;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,13 +30,15 @@ public class Permutation2 {
 		}
 		
 		for (int i=0; i< nums.length; i++) {
-			// 跳过重复元素，visitedIndex.contains(i-1)的条件是说明对除了第一个元素以外的集合做permutation
-			if (i > 0 && nums[i] == nums[i - 1] && visitedIndex.contains(i - 1)) {
-                i++;
+			// 跳过重复元素, 如果这个数和之前的数一样,并且之前的数还未使用过,那接下来如果走这个分支，
+			// 就会使用到之前那个和当前一样的数, 就会发生重复,此时分支和之前的分支一模一样。
+			// 减掉可能重复的分支
+			if (i > 0 && nums[i] == nums[i - 1] && !visitedIndex.contains(i - 1)) {
+                continue;
             }
 			
 			// 回溯法
-			if (!visitedIndex.contains(i)) {	// 未用来构建序列\
+			if (!visitedIndex.contains(i)) {	// 未用来构建序列
 				visitedIndex.add(i);
 				trace.add(nums[i]);
 				dfs(nums, trace);
@@ -48,7 +50,7 @@ public class Permutation2 {
 	
 	public static void main(String[] args) {
 		Permutation2 obj = new Permutation2();
-		int[] nums = {1, 1, 2};
+		int[] nums = {1, 1, 1, 2};
 		List<List<Integer>> res = obj.permuteUnique(nums);
 		for (List<Integer> list : res) {
 			System.out.println(list);
