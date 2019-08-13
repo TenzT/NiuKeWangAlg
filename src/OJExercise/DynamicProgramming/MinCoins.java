@@ -25,6 +25,7 @@ public class MinCoins {
 		/* 递推规则：从左向右，从上到下，
 		 * dp[i][j] = min{dp[i-1][j], dp[i][j-arr[i]]+1}
 		 * dp[i-1][j]表示不用当前货币，后面一种情况需要推导，从dp[i][j-k*arr[i]]+k 得来
+		 * 递归树跟全集合的路径有点像
 		 */
 		long left = 0;
 		for (int i=1; i < numTypes; i++) {
@@ -33,6 +34,7 @@ public class MinCoins {
 				if (j-money[i] >=0 && dp[i][j-money[i]]!=max) {
 					left = dp[i][j-money[i]] + 1;
 				}
+				// left是选当前货币的结果，dp[i-1][j]是不选当前货币的结果，选最小值
 				dp[i][j] = Math.min(left, dp[i-1][j]);
 			}
 		}

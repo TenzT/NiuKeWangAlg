@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class CoinsWay {
 	public static long count1(int aim) {
-		int[] money = new int[]{1, 5, 10, 25, 50};
+		int[] money = new int[]{1, 5, 10, 25};
 		return process1(aim, 0, money);
 	}
 	public static long process1(int aim, int cur, int[] money) {
@@ -29,7 +29,7 @@ public class CoinsWay {
 	
 	// dp版本，二维数组
 	public static int count2(int aim) {
-		int[] money = new int[]{1, 5, 10, 25, 50};
+		int[] money = new int[]{1, 5, 10, 25};
 		int[][] dp = new int[money.length+1][aim+1];
 		// basecase
 		for (int i = 0; i <money.length; i++) {
@@ -43,7 +43,7 @@ public class CoinsWay {
 		for (int i=1; i < money.length; i++) {
 			for (int j=1; j <= aim; j++) {
 				num = 0;
-				for (int k=0; j-money[i]*k >=0; k++) {;
+				for (int k=0; j-money[i]*k >=0; k++) {
 					num += dp[i-1][j-money[i]*k];
 				}
 				dp[i][j] = num;
@@ -57,7 +57,7 @@ public class CoinsWay {
 		if (aim <= 0) {
             return 1;
         }
-		int[] money = new int[]{1, 5, 10, 25, 50};
+		int[] money = new int[]{1, 5, 10, 25};
 		long[] dp = new long[aim+1];
 		dp[0] = 1;
 		for (int i=0; i < 5; i++) {

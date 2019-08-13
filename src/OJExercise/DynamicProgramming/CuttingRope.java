@@ -32,7 +32,26 @@ public class CuttingRope {
 		return product[length];
 	}
 	
+	// 递归版本，长度不能小于4
+	public static int maxProduct2(int length) {
+		// basecase
+		if (length<2) {
+			return 0;
+		} else if (length == 2) {
+			return 2;
+		} else if (length == 3) {
+			return 3;
+		}
+		
+		int max = 0;
+		for (int i=1; i<=length/2; i++) {
+			max = Math.max(max, maxProduct2(i)*maxProduct2(length-i));
+		}
+		return max;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(maxProduct1(8));
+		System.out.println(maxProduct2(8));
 	}
 }
